@@ -1,0 +1,697 @@
+header {
+  border-bottom: 2px solid #4AB3F4;
+}
+header .navbar-light .navbar-brand {
+  font-size: 30px;
+  line-height: 1;
+  font-weight: bold;
+  color: #4AB3F4;
+  text-shadow: 1px 1px 1px #101010;
+  transition: linear 0.15s all;
+}
+header .navbar-light .navbar-brand:hover {
+  color: #4AB3F4;
+  text-shadow: 2px 2px 2px #101010, -1px -1px 1px rgba(16, 16, 16, 0.3);
+}
+.footer {
+  border-top: 3px solid #04263b;
+  background-color: #09649c;
+  padding: 25px 0;
+}
+.footer .signature {
+  text-align: center;
+  font-size: 14px;
+  color: #f4f4f4;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 2px #101010;
+}
+.home-main .jumbotron {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  margin: 0;
+}
+.home-main .jumbotron .row h2 {
+  color: #f4f4f4;
+  text-shadow: 1px 1px 1px #434343;
+  margin-bottom: 20px;
+}
+.home-main .jumbotron .row p.lead {
+  color: #f4f4f4;
+  font-size: 24px;
+  text-shadow: 1px 1px 0 #101010;
+}
+.home-main .jumbotron .form-wrapper {
+  background-color: #4AB3F4;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 10px 3px rgba(16, 16, 16, 0.3);
+  text-align: right;
+}
+.home-main .jumbotron .form-wrapper h2 {
+  text-align: left;
+}
+.home-main .jumbotron .form-wrapper input {
+  transition: linear 0.2s all;
+}
+.home-main .jumbotron .form-wrapper input:focus {
+  box-shadow: 0px 3px 15px 3px rgba(16, 16, 16, 0.3);
+}
+.home-main .jumbotron .form-wrapper label {
+  display: none;
+}
+.home-main .jumbotron .form-wrapper small {
+  color: #f4f4f4;
+  text-align: right;
+}
+.home-main .jumbotron .form-wrapper button {
+  border: 1px solid rgba(244, 244, 244, 0.7);
+  display: block;
+  margin-left: auto;
+  transition: linear 0.15s all;
+}
+.home-main .jumbotron .form-wrapper button:hover {
+  background-color: #0c82cc;
+}
+.home-main .card-row .card {
+  padding: 30px 10px;
+}
+.home-main .card-row .card .card-icon {
+  text-align: center;
+  font-size: 45px;
+  line-height: 1;
+  color: #0c82cc;
+  text-shadow: 1px 1px 0 #5d5d5d;
+}
+.home-main .card-row .card .card-title {
+  text-align: center;
+}
+.home-main .testimonials-rows {
+  background-color: #1a9ff1;
+}
+.home-main .testimonials-rows .section-title {
+  width: 100%;
+  text-align: center;
+  color: #f4f4f4;
+  text-shadow: 2px 2px 0 #101010;
+  font-size: 40px;
+  position: relative;
+}
+.home-main .testimonials-rows .section-title:before,
+.home-main .testimonials-rows .section-title:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 25%;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 45%;
+  box-shadow: 1px 1px 0 #101010;
+}
+.home-main .testimonials-rows .section-title:before {
+  left: 0;
+}
+.home-main .testimonials-rows .section-title:after {
+  right: 0;
+}
+.home-main .testimonials-rows #carouselExampleSlidesOnly {
+  background-color: rgba(244, 244, 244, 0.85);
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+.home-main .testimonials-rows #carouselExampleSlidesOnly .carousel-inner {
+  height: 200px;
+}
+.home-main .testimonials-rows #carouselExampleSlidesOnly .carousel-inner .carousel-item {
+  padding: 0 10%;
+}
+.home-main .testimonials-rows #carouselExampleSlidesOnly .carousel-inner .carousel-item .review {
+  font-size: 24px;
+  line-height: 1.2;
+  color: #363636;
+}
+.home-main .testimonials-rows #carouselExampleSlidesOnly .carousel-inner .carousel-item .review:before,
+.home-main .testimonials-rows #carouselExampleSlidesOnly .carousel-inner .carousel-item .review:after {
+  font-family: FontAwesome;
+  display: inline-block;
+  margin: 0 10px;
+  line-height: 1;
+  color: rgba(16, 16, 16, 0.6);
+}
+.home-main .testimonials-rows #carouselExampleSlidesOnly .carousel-inner .carousel-item .review:before {
+  content: "\f10d";
+}
+.home-main .testimonials-rows #carouselExampleSlidesOnly .carousel-inner .carousel-item .review:after {
+  content: "\f10e";
+}
+.home-main .testimonials-rows #carouselExampleSlidesOnly .carousel-inner .carousel-item .reviewer {
+  text-align: right;
+  font-size: 24px;
+  color: #363636;
+  margin-right: 20px;
+}
+.home-main .welcome-row .welcome-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  font-size: 30px;
+  text-shadow: 1px 1px 1px #5d5d5d;
+  color: #1a9ff1;
+}
+.home-main .welcome-row .list-group .list-group-item {
+  border: none;
+  position: relative;
+  font-size: 24px;
+  padding-left: 30px;
+  letter-spacing: 1px;
+}
+.home-main .welcome-row .list-group .list-group-item:before,
+.home-main .welcome-row .list-group .list-group-item:after {
+  content: "";
+  font-family: FontAwesome;
+  position: absolute;
+  left: 0;
+}
+.home-main .welcome-row .list-group .list-group-item:before {
+  content: "\f096";
+}
+.home-main .welcome-row .list-group .list-group-item:after {
+  content: "\f00c";
+  color: #10a010;
+}
+.home-main .welcome-row .intro-text {
+  font-size: 20px;
+}
+.home-main .register-row button {
+  display: block;
+  width: 300px;
+  border: 1px solid #4AB3F4;
+  color: #4AB3F4;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px auto;
+  transition: linear 0.2s all;
+  font-weight: bold;
+}
+.home-main .register-row button:hover {
+  border: 1px solid #0c82cc;
+  background-color: #0c82cc;
+  box-shadow: 0px 2px 14px 2px rgba(16, 16, 16, 0.5);
+  color: #f4f4f4;
+}
+.dashboard-wrapper {
+  /* content-row */
+}
+.dashboard-wrapper .banner-img {
+  height: 360px;
+  background-image: url('/images/default_profile_banner.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dashboard-wrapper .nav-row {
+  border-bottom: 1px solid rgba(16, 16, 16, 0.2);
+}
+.dashboard-wrapper .nav-row .col-4 img {
+  width: 200px;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border: 4px solid #f4f4f4;
+  box-shadow: 1px 0 20px 0px #101010;
+}
+.dashboard-wrapper .nav-row .nav-tabs {
+  border: none;
+}
+.dashboard-wrapper .nav-row .nav-tabs li.nav-item a.nav-link {
+  border: none;
+  padding: 5px;
+  margin: 0 20px;
+  transition: linear 0.15s all;
+}
+.dashboard-wrapper .nav-row .nav-tabs li.nav-item a.nav-link.active,
+.dashboard-wrapper .nav-row .nav-tabs li.nav-item a.nav-link:hover {
+  border-bottom: 3px solid #4AB3F4;
+}
+.dashboard-wrapper .nav-row .nav-tabs li.nav-item a.nav-link.active .nav-value,
+.dashboard-wrapper .nav-row .nav-tabs li.nav-item a.nav-link:hover .nav-value {
+  color: #4AB3F4;
+  text-shadow: 1px 1px 0 rgba(16, 16, 16, 0.5);
+}
+.dashboard-wrapper .nav-row .nav-tabs li.nav-item a.nav-link .nav-label,
+.dashboard-wrapper .nav-row .nav-tabs li.nav-item a.nav-link .nav-value {
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  color: #434343;
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.dashboard-wrapper .nav-row .nav-tabs li.nav-item a.nav-link .nav-value {
+  font-size: 18px;
+}
+.dashboard-wrapper .content-row {
+  padding: 60px 0 30px;
+  background-color: #ececec;
+}
+.dashboard-wrapper .account-details {
+  padding: 0 20px 0 40px;
+}
+.dashboard-wrapper .account-details .account-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #101010;
+  letter-spacing: 1px;
+  margin: 0;
+  line-height: 1;
+}
+.dashboard-wrapper .account-details .account-handle {
+  font-size: 14px;
+  color: #434343;
+  margin: 0;
+}
+.dashboard-wrapper .account-details .account-joined {
+  font-size: 14px;
+  color: #434343;
+  margin: 15px 0 0 0;
+}
+.dashboard-wrapper .account-details .account-joined:before {
+  content: "\f073";
+  font-family: FontAwesome;
+  display: inline;
+  margin: 0 8px 0 0;
+}
+.dashboard-wrapper .account-details form#post-tweet {
+  width: 100%;
+  margin-top: 30px;
+}
+.dashboard-wrapper .account-details form#post-tweet textarea {
+  width: 100%;
+  height: 200px;
+  resize: none;
+  border-color: #c1c1c1;
+  background-color: #f4f4f4;
+  padding: 5px 10px;
+}
+.dashboard-wrapper .account-details form#post-tweet button {
+  background-color: #f4f4f4;
+  border: 1px solid #1a9ff1;
+  color: #1a9ff1;
+  transition: linear 0.2s all;
+  padding: 5px 20px;
+}
+.dashboard-wrapper .account-details form#post-tweet button:hover {
+  color: white;
+  background-color: #4AB3F4;
+}
+.dashboard-wrapper .tab-content {
+  min-height: 500px;
+  background-color: #f4f4f4;
+}
+.dashboard-wrapper .tweet-list-item {
+  background-color: transparent;
+  padding: 20px 10px;
+  display: flex;
+  border-radius: 0;
+  border-color: #dbdbdb;
+}
+.dashboard-wrapper .tweet-list-item.commented .column-tweet .tweet-actions button.tweet-comments {
+  color: #4AB3F4;
+}
+.dashboard-wrapper .tweet-list-item.commented .column-tweet .tweet-actions button.tweet-comments:before {
+  content: "\f075";
+}
+.dashboard-wrapper .tweet-list-item.liked .column-tweet .tweet-actions button.tweet-like {
+  color: #cc0000;
+}
+.dashboard-wrapper .tweet-list-item.liked .column-tweet .tweet-actions button.tweet-like:before {
+  content: "\f004";
+}
+.dashboard-wrapper .tweet-list-item.retweeted .column-tweet .tweet-actions button.tweet-retweet {
+  color: #10a010;
+}
+.dashboard-wrapper .tweet-list-item .column-icon {
+  display: block;
+}
+.dashboard-wrapper .tweet-list-item .column-icon img {
+  width: 50px;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet {
+  padding-left: 10px;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-header .account-name {
+  font-weight: bold;
+  display: inline;
+  margin: 0 10px 0 0;
+  line-height: 1;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-header .account-name a {
+  color: #101010;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-header .account-handle {
+  display: inline;
+  margin: 0;
+  line-height: 1;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-header .account-handle a {
+  color: #5d5d5d;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-header .tweet-date {
+  display: inline;
+  margin: 0;
+  line-height: 1;
+  color: #5d5d5d;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-header .tweet-date:before {
+  content: "•";
+  margin: 0 10px;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-content .tweet-body {
+  padding: 5px 0 15px;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-content .tweet-media {
+  width: 100%;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a {
+  border: none;
+  color: #5d5d5d;
+  background-color: transparent;
+  transition: linear 0.2s all;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:before {
+  content: "";
+  display: inline-block;
+  margin: 0 6px 0 0;
+  font-family: FontAwesome;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button.tweet-up:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a.tweet-up:before {
+  content: "\f106";
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button.tweet-down:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a.tweet-down:before {
+  content: "\f107";
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button.tweet-edit:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a.tweet-edit:before {
+  content: "\f040";
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button.tweet-delete:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a.tweet-delete:before {
+  content: "\f014";
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button.tweet-retweet:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a.tweet-retweet:before {
+  content: "\f079";
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button.tweet-like:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a.tweet-like:before {
+  content: "\f08a";
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button.tweet-comments:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a.tweet-comments:before {
+  content: "\f0e5";
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:hover.tweet-up,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:hover.tweet-up,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:focus.tweet-up,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:focus.tweet-up {
+  color: #0c82cc;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:hover.tweet-down,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:hover.tweet-down,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:focus.tweet-down,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:focus.tweet-down {
+  color: #0c82cc;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:hover.tweet-edit,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:hover.tweet-edit,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:focus.tweet-edit,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:focus.tweet-edit {
+  color: #b37300;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:hover.tweet-delete,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:hover.tweet-delete,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:focus.tweet-delete,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:focus.tweet-delete {
+  color: #990000;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:hover.tweet-retweet,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:hover.tweet-retweet,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:focus.tweet-retweet,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:focus.tweet-retweet {
+  color: #10a010;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:hover.tweet-comments,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:hover.tweet-comments,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:focus.tweet-comments,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:focus.tweet-comments {
+  color: #4AB3F4;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:hover.tweet-comments:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:hover.tweet-comments:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:focus.tweet-comments:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:focus.tweet-comments:before {
+  content: "\f075";
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:hover.tweet-like,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:hover.tweet-like,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:focus.tweet-like,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:focus.tweet-like {
+  color: #cc0000;
+}
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:hover.tweet-like:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:hover.tweet-like:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions button:focus.tweet-like:before,
+.dashboard-wrapper .tweet-list-item .column-tweet .tweet-actions a:focus.tweet-like:before {
+  content: "\f004";
+}
+#tweet-edit {
+  text-align: right;
+}
+#tweet-edit textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+  margin: 0 0 10px 0;
+  height: 90px;
+}
+#tweet-edit button {
+  background-color: #4AB3F4;
+  color: white;
+  transition: linear 0.2s;
+}
+#tweet-edit button:hover {
+  background-color: #09649c;
+}
+.modal .modal-title {
+  color: #4AB3F4;
+}
+.modal .close {
+  color: #09649c;
+}
+.modal .modal-footer button {
+  background-color: #4AB3F4;
+  transition: linear 0.15s all;
+}
+.modal .modal-footer button:hover {
+  background-color: #09649c;
+}
+.settings-wrapper {
+  background-color: #f1f1f1;
+  padding: 20px 0 0 0;
+}
+.settings-wrapper .menu-header {
+  background-color: #f4f4f4;
+  padding: 0 0 15px 0;
+  margin: 0 0 20px 0;
+}
+.settings-wrapper .menu-header .account-info {
+  position: relative;
+}
+.settings-wrapper .menu-header .account-info img {
+  position: absolute;
+  top: -30px;
+  width: 85px;
+  left: 10px;
+  border: 3px solid #f4f4f4;
+  box-shadow: 0 0 1px 1px #909090;
+}
+.settings-wrapper .menu-header .account-info .titles {
+  margin-left: 100px;
+}
+.settings-wrapper .menu-header .account-info .titles .account-name {
+  font-weight: bold;
+  margin: 0;
+  font-size: 18px;
+}
+.settings-wrapper .menu-header .account-info .titles .account-handle {
+  margin: 0;
+  color: #5d5d5d;
+}
+.settings-wrapper .menu-options {
+  width: 100%;
+  border: 1px solid #dbdbdb;
+}
+.settings-wrapper .menu-options .btn {
+  text-align: left;
+  border-bottom: 1px solid #dbdbdb;
+  margin: 0;
+  position: relative;
+  transition: linear 0.15s all;
+  color: #767676;
+}
+.settings-wrapper .menu-options .btn.active {
+  font-weight: bold;
+}
+.settings-wrapper .menu-options .btn.active:after {
+  transform: scale(1.3);
+}
+.settings-wrapper .menu-options .btn:after {
+  content: "\f105";
+  font-family: FontAwesome;
+  position: absolute;
+  right: 10px;
+}
+.settings-wrapper .menu-options .btn:hover {
+  color: #1a9ff1;
+  background-color: #efefef;
+}
+.settings-wrapper .column-content {
+  min-height: 80vh;
+  background-color: #ffffff;
+  padding: 20px;
+}
+.settings-wrapper .tab-pane .panel-title {
+  color: #101010;
+}
+.settings-wrapper .tab-pane .settings-info {
+  color: #5d5d5d;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #dbdbdb;
+}
+.settings-wrapper .tab-pane .enabled label.lead {
+  display: inline;
+  line-height: 1.1;
+  vertical-align: bottom;
+}
+.settings-wrapper .tab-pane .enabled label.lead:hover {
+  cursor: pointer;
+}
+.settings-wrapper .tab-pane .enabled label.lead input {
+  display: inline;
+  margin-right: 6px;
+}
+.settings-wrapper .tab-pane .settings-panel {
+  position: relative;
+}
+.settings-wrapper .tab-pane .settings-panel.sheild {
+  opacity: 0.25;
+}
+.settings-wrapper .tab-pane .settings-panel.sheild:before {
+  z-index: 99;
+}
+.settings-wrapper .tab-pane .settings-panel:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  z-index: -1;
+}
+.settings-wrapper .tab-pane .settings-panel .lead {
+  margin: 20px 0 10px 0;
+  display: block;
+  width: 100%;
+  border-bottom: 2px solid #dbdbdb;
+  font-weight: bold;
+  color: #434343;
+}
+.settings-wrapper .tab-pane .settings-panel form.traditional {
+  margin: 20px 0;
+  text-align: right;
+}
+.settings-wrapper .tab-pane .settings-panel form.traditional .form-title {
+  color: #434343;
+  text-align: left;
+}
+.settings-wrapper .tab-pane .settings-panel form.traditional .form-group {
+  margin-bottom: 5px;
+}
+.settings-wrapper .tab-pane .settings-panel form.traditional .form-group .lead {
+  text-align: left;
+}
+.settings-wrapper .tab-pane .settings-panel form.schedule {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.settings-wrapper .tab-pane .settings-panel form.schedule.scheduled {
+  padding: 10px 0 0 0;
+  margin: 10px 0 0 0;
+  border-bottom: 1px solid #dbdbdb;
+}
+.settings-wrapper .tab-pane .settings-panel form.schedule.scheduled:nth-last-child(1) {
+  border: none;
+}
+.settings-wrapper .tab-pane .settings-panel form.schedule p label {
+  margin-right: 6px;
+}
+.settings-wrapper .tab-pane .settings-panel form.schedule button.btn.submitBtn {
+  height: 30px;
+  line-height: 29px;
+  vertical-align: middle;
+  padding: 0 20px;
+}
+body {
+  background-color: #f6f6f6;
+}
+section {
+  padding: 50px 0;
+}
+button:hover {
+  cursor: pointer;
+}
+button:hover[disabled] {
+  cursor: default;
+}
+.container-fluid {
+  padding: 0;
+}
+body > div {
+  min-height: 100vh;
+}
+.btn.btn-primary {
+  background-color: #4AB3F4;
+  border-color: #4AB3F4;
+}
+a {
+  color: #4AB3F4;
+}
+a:hover {
+  color: #0c82cc;
+}
+.main {
+  position: relative;
+}
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  display: inline;
+  z-index: 9;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.18);
+}

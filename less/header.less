@@ -1,0 +1,20 @@
+// main: main.less
+
+header  {
+  border-bottom: 2px solid @tblue;
+
+  .navbar-light .navbar-brand {
+    font-size: 30px;
+    line-height: 1;
+    font-weight: bold;
+    color: @tblue;
+    text-shadow: 1px 1px 1px @black;
+    transition: linear 0.15s all; 
+
+    &:hover {
+      color: @tblue;
+      text-shadow: 2px 2px 2px @black, -1px -1px 1px fadeout(@black, 70%);
+    }
+
+  }
+}

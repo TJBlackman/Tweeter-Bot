@@ -1,0 +1,90 @@
+extends layout.pug
+
+block content
+  .home-main.main
+    //- JUMBOTRON
+    .jumbotron(style="background-image: url('../images/hero2.jpeg');")
+      .container
+        .row
+          .col-sm-6
+            h2 Automate Your Online Presence
+            p.lead Using a simple automation system to manager you Twitter account, you're going to find so many more ways to make your time productive!
+          .col-sm-4.ml-auto.form-wrapper
+            h2 Sign Up Today
+            form#signup-form(action="/user/register" method="post")
+              .form-group
+                input.form-control(type='email', name="email", placeholder='Enter email')
+                small.form-text We'll never share your email with anyone.
+              .form-group
+                input.form-control(type='password', name="password" placeholder='Password')
+              .form-group
+                input.form-control(type='password', placeholder='Confirm Password')
+              button.btn.btn-primary.submitBtn(type='button') Submit
+    //- CARD DECK
+    .container
+      section.row.card-row
+        .card-deck
+          .card
+            .card-body
+              h3.card-icon
+                i.fa.fa-cogs(aria-hidden='true')
+              h4.card-title Automation
+              p.card-text
+                | Fully automated system, built from the ground up to completely manage your Twitter account while you experience the life moments that really matter!
+          .card
+            .card-body
+              h3.card-icon.text-center
+                i.fa.fa-cubes(aria-hidden='true')
+              h4.card-title.text-center Simplicity
+              p.card-text
+                | Features built around simplicity and ease of use! Accomplish more while doing less!
+          .card
+            .card-body
+              h3.card-icon.text-center
+                i.fa.fa-lock(aria-hidden='true')
+              h4.card-title.text-center Security
+              p.card-text
+                | The latest cyber security and encryptions techniques are utilized to make sure your account remains completely under you control.
+    //- TESTIMONIALS
+    section.row.testimonials-rows
+      .container
+        h3.section-title What Others Are Saying
+        #carouselExampleSlidesOnly.carousel.slide.col-md-10(data-ride='carousel')
+          .carousel-inner
+            .carousel-item.active
+              p.review
+                | Twitter Bot is a super helpful tool for my business. One per week, I queue up some tweets, my customers stay informed, and I don't have to worry about a thing! Love it!!
+              p.reviewer
+                | - Stu johnson
+                br
+                | Owner & Operator | Highland Power Equipment
+            .carousel-item
+              p.review
+                | This service is an aboslute necessity for my marketing team. We manage social media for dozens of clients in our local area, and Twitter Bot makes it possible complete a ton of work in very litte time!
+              p.reviewer
+                | - Alexander Brown
+                br
+                | General Manager | Mile High Co.
+            .carousel-item
+              p.review
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum fugit est dolor a eos atque molestias eum consequatur, commodi molestiae ducimus facilis. Voluptas incidunt optio libero nostrum molestiae nam dicta.
+              p.reviewer
+                | - John Eddy
+                br
+                | Awesome Co Inc.
+    //- WELCOME
+    section.container
+      .row.welcome-row
+        h3.welcome-title Start Automating Today!
+        .col-md
+          ul.list-group
+            li.list-group-item Highly Intuitive Interface
+            li.list-group-item Scheduling and Automation Features
+            li.list-group-item Quick and Easy Management
+            li.list-group-item Absolutely 100% Free!
+        .col-md
+          .intro-text
+            p
+              | Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptatibus, id, necessitatibus aliquam officiis modi sit voluptatum dolor totam accusamus aliquid ex, nobis assumenda. Veniam quisquam commodi explicabo sapiente asperiores? amet consectetur adipisicing elit. Inventore voluptatibus, id, necessitatibus aliquam officiis modi sit voluptatum dolor totam accusamus aliquid ex, nobis assumenda. Veniam quisquam commodi explicabo sapiente asperiores?
+      .row.register-row
+        button.btn(type='button') Register Now!

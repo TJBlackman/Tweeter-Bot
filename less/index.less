@@ -1,0 +1,210 @@
+// main: main.less
+.home-main {
+  .jumbotron {
+    background-size: cover; 
+    background-position: center; 
+    padding: 100px 0; 
+    margin: 0; 
+
+    .row {
+      h2 {
+        color: @white; 
+        text-shadow: 1px 1px 1px lighten(@black, 20%);
+        margin-bottom: 20px; 
+      }
+      p.lead {
+        color: @white; 
+        font-size: 24px; 
+        text-shadow: 1px 1px 0 @black;
+      }
+    }
+
+    .form-wrapper {
+      background-color: @tblue; 
+      padding: 20px; 
+      border-radius: 5px; 
+      box-shadow: 0px 3px 10px 3px fadeout(@black, 70%);
+      text-align: right; 
+
+      h2 {
+        text-align: left; 
+      }
+
+      input {
+        transition: linear 0.2s all; 
+
+        &:focus{
+          box-shadow: 0px 3px 15px 3px fadeout(@black, 70%);
+        }
+      }
+
+      label {
+        display: none; 
+      }
+      small {
+        color: @white; 
+        text-align: right; 
+      }
+      button{
+        border: 1px solid fadeout(@white, 30%); 
+        display: block; 
+        margin-left: auto; 
+        transition: linear 0.15s all; 
+
+        &:hover {
+          background-color: darken(@tblue, 20%);
+        }
+      }
+
+    }
+  }
+
+  .card-row {
+    .card {
+      padding: 30px 10px;
+
+      .card-icon {
+        text-align: center; 
+        font-size: 45px; 
+        line-height: 1; 
+        color: darken(@tblue, 20%);
+        text-shadow: 1px 1px 0 lighten(@black, 30%);
+      }
+      .card-title {
+        text-align: center; 
+      }
+    }
+  }
+
+  .testimonials-rows {
+    background-color: darken(@tblue, 10%);
+
+    .section-title {
+      width: 100%; 
+      text-align: center; 
+      color: @white; 
+      text-shadow: 2px 2px 0 @black;
+      font-size: 40px; 
+      position: relative; 
+    
+      &:before,
+      &:after {
+        content: ""; 
+        display: block; 
+        height: 3px; 
+        width: 25%; 
+        background-color: @white; 
+        position: absolute;
+        top: 45%;  
+        box-shadow: 1px 1px 0 @black;
+      }
+      &:before { left: 0; }
+      &:after { right: 0; }
+    }
+
+    #carouselExampleSlidesOnly {
+      background-color: fadeout(@white, 15%); 
+      margin: 30px auto; 
+      padding: 20px; 
+      border-radius: 5px; 
+
+      .carousel-inner {
+        height: 200px; 
+
+        .carousel-item {
+          padding: 0 10%; 
+
+          .review {
+            font-size: 24px; 
+            line-height: 1.2; 
+            color: lighten(@black, 15%);
+
+            &:before,
+            &:after{
+              font-family: FontAwesome;
+              display: inline-block; 
+              margin: 0 10px; 
+              line-height: 1;  
+              color: fadeout(@black, 40%);
+            } 
+            &:before{
+              content: "\f10d";
+            }
+            &:after {
+              content: "\f10e";
+            }
+          }
+          .reviewer {
+            text-align: right; 
+            font-size: 24px; 
+            color: lighten(@black, 15%);
+            margin-right: 20px; 
+          }
+        }
+      }
+    }
+  }
+
+  .welcome-row {
+    .welcome-title {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 2px; 
+      font-size: 30px; 
+      text-shadow: 1px 1px 1px lighten(@black, 30%);
+      color: darken(@tblue, 10%);
+    }
+    .list-group {
+      .list-group-item {
+        border: none;
+        position: relative;
+        font-size: 24px;
+        padding-left: 30px;
+        letter-spacing: 1px;
+
+        &:before,
+        &:after {
+          content: "";
+          font-family: FontAwesome; 
+          position: absolute; 
+          left: 0; 
+        } 
+        &:before { 
+          content: "\f096"; 
+        }
+        &:after { 
+          content: "\f00c"; 
+          color: @green;
+        }
+      }
+    }
+    .intro-text {
+      font-size: 20px; 
+    }
+  }
+
+  .register-row {
+    button {
+      display: block; 
+      width: 300px;
+      border: 1px solid @tblue; 
+      color: @tblue; 
+      font-size: 20px; 
+      text-align: center; 
+      margin: 20px auto;  
+      transition: linear 0.2s all; 
+      font-weight: bold; 
+
+
+      &:hover {
+        border: 1px solid darken(@tblue, 20%);
+        background-color: darken(@tblue, 20%);
+        box-shadow: 0px 2px 14px 2px fadeout(@black, 50%);
+        color: @white; 
+      }
+    }
+  }
+
+} // end home-main

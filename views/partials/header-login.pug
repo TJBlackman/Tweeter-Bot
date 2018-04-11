@@ -1,0 +1,8 @@
+ul.navbar-nav.ml-auto
+  form#signin-form.form-inline(action="/user/login", method="post")
+    label.sr-only(for='inlineFormInputName2') Username
+    input#inlineFormInputName2.form-control.mb-2.mr-sm-2.mb-sm-0(type='text', placeholder='Email Address', name="email")
+    label.sr-only(for='inlineFormInputGroupUsername2') Password
+    .input-group.mb-2.mr-sm-2.mb-sm-0
+      input#inlineFormInputGroupUsername2.form-control(type='password', placeholder='Password', name="password")
+    button.btn.btn-primary.submitBtn(type='button') Login

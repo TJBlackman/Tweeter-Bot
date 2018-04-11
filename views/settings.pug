@@ -1,0 +1,338 @@
+extends layout.pug
+
+block content
+  -
+    var name = user.twitterInfo.name || 'User Name'
+    var handle = user.twitterInfo.screen_name || 'UserHandle'
+    var email = user.email || "";  
+    var consumer_key = user.twitConfig.consumer_key || "";
+    var consumer_secret = user.twitConfig.consumer_secret || "";
+    var access_token = user.twitConfig.access_token || "";
+    var access_token_secret = user.twitConfig.access_token_secret || "";  
+    var profile_banner = user.twitterInfo.profile_banner_url || "/images/default_profile_banner.jpg";
+    var profile_image = user.twitterInfo.profile_image_url || "/images/default_profile_image.jpg";
+    var keywords_likes = user.keywords.likes || ''; 
+    var keywords_retweets = user.keywords.retweets || ''; 
+    var keywords_banned = user.keywords.banned || ''; 
+    var weekDayValues = ['Daily','Mondays','Tuesdays','Wednesdays','Thursdays','Fridays','Saturdays','Sundays']
+
+  mixin weekOptions(value)
+    each day,index in weekDayValues
+      option(value=`${index}`, selected=(index == value)) #{day}
+
+  .settings-wrapper.main
+    .container
+      .row
+        //- LEFT COLUMN
+        .col-md-4.column-menu
+          .menu-header
+            .banner
+              img.img-fluid(src=`${profile_banner}`)
+            .account-info
+              img.rounded-circle.profile-pic(src=`${profile_image}`)
+              .titles
+                p.account-name #{name}
+                p.account-handle @#{handle}
+          .btn-group-vertical.menu-options.nav.nav-tabs
+            button.btn.active(type='button', data-toggle='tab', href='#tweet-panel', role='tab') Tweet Schedule
+            button.btn(type='button', data-toggle='tab', href='#likes-panel', role='tab') Likes Settings
+            button.btn(type='button', data-toggle='tab', href='#retweet-panel', role='tab') Retweet Settings
+            button.btn(type='button', data-toggle='tab', href='#banned-panel', role='tab') Banned Words
+            button.btn(type='button', data-toggle='tab', href='#account-panel', role='tab') Account Settings
+            button.btn(type='button', data-toggle='tab', href='#api-panel', role='tab') API Keys
+            button.btn(type='button', data-toggle='tab', href='#faq-panel', role='tab') FAQ
+          br
+          button#twitter-sync.btn.btn-primary.center-block(type='button') Sync With Twitter
+        //- CONTENT COLUMN
+        .col-md-8.column-content
+          .tab-content
+            //- account settings
+            #account-panel.tab-pane.fade(role='tabpanel')
+              h2.panel-title Account Settings
+              p.settings-info.lead
+                | This information is associated with your Twitter Bot account only. It will not change the email address or password associated with your actual Twitter account.
+              .settings-panel
+                form.traditional(method="PUT" action="/user/email")
+                  h4.form-title Update Your Email Address
+                  .form-group
+                    input.form-control(type='text', placeholder='Email Address', name='email', value=`${email}` )
+                  .form-group
+                    .input-group
+                      input.form-control(type='password', placeholder='New Password', name='password')
+                      span.input-group-btn
+                        button.btn.btn-secondary.show-input(type='button', tabindex="-1")
+                          i.fa.fa-eye(aria-hidden='true')
+                  button.btn.btn-primary.submitBtn(type='button') Save
+                form.traditional(method="PUT" action="/user/password")
+                  h4.form-title Update Your Password
+                  .form-group
+                    .input-group
+                      input.form-control(type='password', placeholder='Current Password', name='current_password')
+                      span.input-group-btn
+                        button.btn.btn-secondary.show-input(type='button', tabindex="-1")
+                          i.fa.fa-eye(aria-hidden='true')
+                  .form-group
+                    .input-group
+                      input.form-control(type='password', placeholder='New Password', name='new_password')
+                      span.input-group-btn
+                        button.btn.btn-secondary.show-input(type='button', tabindex="-1")
+                          i.fa.fa-eye(aria-hidden='true')
+                  .form-group
+                    .input-group
+                      input.form-control(type='password', placeholder='Confirm New Password', name='confirm_password')
+                      span.input-group-btn
+                        button.btn.btn-secondary.show-input(type='button', tabindex="-1")
+                          i.fa.fa-eye(aria-hidden='true')
+                  button.btn.btn-primary.submitBtn(type='button') Save
+            //- API KEYS
+            #api-panel.tab-pane.fade(role='tabpanel')
+              h2.panel-title API Settings
+              p.settings-info.lead
+                | This information information is very private!
+                br
+                | Keep it secret! Keep it safe!
+                unless user.twitterInfo.name
+                  br
+                  br
+                  span.text-danger Con not connect to your Twitter account without this information.
+              #accordion(role='tablist')
+                //- card 1
+                .card
+                  #headingOne.card-header(role='tab')
+                    h5.mb-0
+                      a(data-toggle='collapse', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                        | What are API keys?
+                  #collapseOne.collapse(role='tabpanel', data-parent='#accordion')
+                    .card-body
+                      p
+                        | API keys allows us to communicate directly with Twitter on your behalf! You can think of them as highly complex passwords that we present to Twitter to prove that we have the authority to post, like, and retweet from your account.
+                      p Without them, we simply cannot access your account.
+                      p
+                        span.lead Note:
+                        |  Providing API keys from Twitter will not give us access to see your Twitter password, or other personal information.
+                //- card 2
+                .card
+                  #headingTwo.card-header(role='tab')
+                    h5.mb-0
+                      a.collapsed(data-toggle='collapse', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                        | How do I generate my API keys?
+                  #collapseTwo.collapse(role='tabpanel', aria-labelledby='headingTwo', data-parent='#accordion')
+                    .card-body
+                      ul.list-group
+                        li.list-group-item Log into 
+                          a(href="https://www.twitter.com", target="_blank") Twitter, 
+                          | then visit 
+                          a(href='https://apps.twitter.com/app/new', target='_blank') https://apps.twitter.com/app/new
+                        li.list-group-item
+                          | Fill in the required fields to create a new Twitter application
+                          ul
+                            li Name: Twitter Bot
+                            li Description: Automated Twitter Service
+                            li Website: https://www.twitterbot.io
+                        li.list-group-item Submit application
+                        li.list-group-item Near the top of the page, select Keys &amp; Access Tokens
+                        li.list-group-item Copy and paste API Key and API Secret
+                        li.list-group-item Click Create Access Token
+                        li.list-group-item Copy and paste Access Token &amp; Token Secret
+                        li.list-group-item Save settings on TwitterBot
+                      br
+                      p
+                        | You may revoke TwitterBot access to your account at any time by logging in via the link above and clicking the revoke access button at the bottom of the API Keys page.
+              .settings-panel
+                form.traditional(name="save-api-keys" action="/user/apikeys" method="post")
+                  h4.form-title API Key
+                  .form-group
+                    .input-group
+                      input.form-control(
+                        type='password'
+                        placeholder='API Key'
+                        name='consumer_key'
+                        value=`${consumer_key}`
+                      )
+                      span.input-group-btn
+                        button.btn.btn-secondary.show-input(type='button')
+                          i.fa.fa-eye(aria-hidden='true')
+                  .form-group
+                    .input-group
+                      input.form-control(
+                        type='password'
+                        placeholder='API Secret'
+                        name='consumer_secret'
+                        value=`${consumer_secret}`
+                      )
+                      span.input-group-btn
+                        button.btn.btn-secondary.show-input(type='button')
+                          i.fa.fa-eye(aria-hidden='true')
+                  h4.form-title Access Token
+                  .form-group
+                    .input-group
+                      input.form-control(
+                        type='password'
+                        placeholder='Access Token'
+                        name='access_token'
+                        value=`${access_token}`
+                      )
+                      span.input-group-btn
+                        button.btn.btn-secondary.show-input(type='button')
+                          i.fa.fa-eye(aria-hidden='true')
+                  .form-group
+                    .input-group
+                      input.form-control(
+                        type='password'
+                        placeholder='Access Secret'
+                        name='access_token_secret'
+                        value=`${access_token_secret}`
+                      )
+                      span.input-group-btn
+                        button.btn.btn-secondary.show-input(type='button')
+                          i.fa.fa-eye(aria-hidden='true')
+                  button.btn.btn-primary.submitBtn(type='button') Save
+            
+            //- Tweet Panel
+            #tweet-panel.tab-pane.fade.show.active(role='tabpanel')
+              h2.panel-title Tweet Schedule
+              p.settings-info.lead
+                | Use this menu to set the schedule to use when auto-tweeting. When the provided day and time is reached, the next tweet in the queue will be posted.
+              .enabled
+                label.enableFeature.lead
+                  input(name="enable", type="checkbox", data-action="/api/schedule/tweet/enable", checked=user.automation.tweet) 
+                  | Enable Auto-Tweeting
+              .settings-panel(class=(user.automation.tweet) ? "" : "sheild")
+                p.lead Schedule New Tweet Event
+                form.schedule.new(id="new-tweet-schedule", name="schedule-tweet" method="POST" action="/api/schedule/tweet")
+                  p
+                    label Select Day:
+                    select(name="day") 
+                      +weekOptions
+                  p
+                    label Select Time:
+                    input(type="time" value="12:00" name="time")
+                  button.submitBtn.btn.btn-primary(type="button") Save
+                .saved-schedules(class=(user.schedule.tweets.length) ? "" : "d-none")
+                  p.lead Saved Tweet Schedules
+                    if user.schedule.tweets.length > 0
+                      each sched,index in user.schedule.tweets
+                        form.schedule.scheduled(name="schedule-tweet" method="POST")
+                          input(type="hidden" name="index" value=`${index}`)
+                          p
+                            label Day:
+                            select(name="day") 
+                              +weekOptions(sched.day)
+                          p
+                            label Time:
+                            input(type="time" value=`${sched.time}` name="time")
+                          button.submitBtn.btn.btn-primary(type="button", data-action="/api/schedule/tweet/update", disabled) Update
+                          button.submitBtn.btn.btn-danger(type="button",  data-action="/api/schedule/tweet/delete") Delete
+
+
+            //- LIKES PANEL
+            #likes-panel.tab-pane.fade(role='tabpanel')
+              h2.panel-title Likes Settings
+              p.settings-info.lead
+                | Use this menu to select how often your twitter account should like other tweets. You may set a number of keywords for which to look for when auto-liking a tweet.
+              .enabled
+                label.enableFeature.lead
+                  input(name="enable", type="checkbox", data-action="/api/schedule/like/enable", checked=user.automation.like) 
+                  | Enable Scheduled Likes
+              .settings-panel(class=(user.automation.like) ? "" : "sheild")
+                form.traditional(action="/user/keywords/likes" method="post")
+                  .form-group
+                    p.lead Keywords
+                    textarea#like-keywords.form-control(type='text', name="likes", placeholder='Dogs, bunnies, tacos, California, etc....') #{keywords_likes}
+                  button.btn.btn-primary.submitBtn(type='button') Save
+                p.lead Schedule New Like Event
+                form.schedule.new(id="new-like-schedule", name="schedule-tweet" method="POST" action="/api/schedule/like")
+                  p
+                    label Select Day:
+                    select(name="day") 
+                      +weekOptions
+                  p
+                    label Select Time:
+                    input(type="time" value="12:00" name="time")
+                  button.submitBtn.btn.btn-primary(type="button") Save
+                .saved-schedules(class=(user.schedule.likes.length) ? "" : "d-none")
+                  p.lead Saved Like Schedules
+                    if user.schedule.likes.length > 0
+                      each sched,index in user.schedule.likes
+                        form.schedule.scheduled(name="schedule-tweet" method="POST")
+                          input(type="hidden" name="index" value=`${index}`)
+                          p
+                            label Day:
+                            select(name="day") 
+                              +weekOptions(sched.day)
+                          p
+                            label Time:
+                            input(type="time" value=`${sched.time}` name="time")
+                          button.submitBtn.btn.btn-primary(type="button", data-action="/api/schedule/like/update", disabled) Update
+                          button.submitBtn.btn.btn-danger(type="button",  data-action="/api/schedule/like/delete") Delete
+            //- Retweet Settings
+            #retweet-panel.tab-pane.fade(role='tabpanel')
+              h2.panel-title Retweet Settings
+              p.settings-info.lead
+                | Use this menu to select how often your twitter account should retweet other tweets. You may set a list of keywords for which to look for when auto-retweeting.
+
+              .enabled
+                label.enableFeature.lead
+                  input(name="enable", type="checkbox", data-action="/api/schedule/retweet/enable", checked=user.automation.retweet) 
+                  | Enable Scheduled Retweets
+              .settings-panel(class=(user.automation.retweet) ? "" : "sheild")
+                form.traditional(action="/user/keywords/retweets" method="post")
+                  .form-group
+                    p.lead Keywords
+                    textarea#retweet-keywords.form-control(type='text', name="retweets", placeholder='Dogs, bunnies, tacos, California, etc....') #{keywords_retweets}
+                  button.btn.btn-primary.submitBtn(type='button') Save
+                p.lead Schedule New Retweet Event
+                form.schedule.new(id="new-retweet-schedule", name="schedule-tweet" method="POST" action="/api/schedule/retweet")
+                  p
+                    label Select Day:
+                    select(name="day") 
+                      +weekOptions
+                  p
+                    label Select Time:
+                    input(type="time" value="12:00" name="time")
+                  button.submitBtn.btn.btn-primary(type="button") Save
+                .saved-schedules(class=(user.schedule.retweets.length) ? "" : "d-none")
+                  p.lead Saved Retweet Schedules
+                    if user.schedule.retweets.length > 0
+                      each sched,index in user.schedule.retweets
+                        form.schedule.scheduled(name="schedule-tweet" method="POST")
+                          input(type="hidden" name="index" value=`${index}`)
+                          p
+                            label Day:
+                            select(name="day") 
+                              +weekOptions(sched.day)
+                          p
+                            label Time:
+                            input(type="time" value=`${sched.time}` name="time")
+                          button.submitBtn.btn.btn-primary(type="button", data-action="/api/schedule/retweet/update", disabled) Update
+                          button.submitBtn.btn.btn-danger(type="button",  data-action="/api/schedule/retweet/delete") Delete
+            //- Banned Settings
+            #banned-panel.tab-pane.fade(role='tabpanel')
+              h2.panel-title Banned Words and Phrases Settings
+              p.settings-info.lead
+                | Create a list of banned words here
+              form(action="/user/keywords/banned" method="post")
+                .form-group
+                  label(for='banned-words') Tweets that include these words will not be liked or retweeted
+                  textarea#banned-words.form-control(type='text', name="banned", placeholder='Enter, Banned, Words... ') #{keywords_banned}
+                button.btn.btn-primary.submitBtn(type='button') Save
+            //- FAQ Panel
+            #faq-panel.tab-pane.fade(role='tabpanel')
+              h2.panel-title FAQ Panel
+              p.settings-info.lead Coming Soon....
+  
+  //- New Users Modal
+  .modal(tabindex='-1', role='dialog')
+    .modal-dialog.modal-lg(role='document')
+      .modal-content
+        .modal-header
+          h5.modal-title Welcome To Twitter Bot!
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          p.lead Welcome to the settings page of your Twitter Bot account. Before you start queueing up and curating your Twitter experience, we need your help in linking our service with your Twitter account. 
+          p.lead There are four pass-phrases we need you to collect from you Twitter account and paste in the settings on this page. If you have any questions or concerns at all, click the FAQ button to see if your question has been answered. 
+          p.lead No personal or compromising data is every shared for any reason!
+        .modal-footer
+          button.btn.btn-secondary(type="button" data-dismiss="modal") Get Started!
+

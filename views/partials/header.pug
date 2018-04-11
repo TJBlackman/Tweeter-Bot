@@ -1,0 +1,12 @@
+header
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container
+      a.navbar-brand(href=(authenticated) ? '/dashboard' : '/') Tweeter Bot
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        
+        if authenticated 
+          include header-menu.pug
+        else 
+          include header-login.pug

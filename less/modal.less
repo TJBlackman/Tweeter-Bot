@@ -1,0 +1,21 @@
+// main: main.less
+
+.modal {
+  .modal-title {
+    color: @tblue; 
+  }
+  .close {
+    color: darken(@tblue, 30%); 
+  }
+  .modal-footer {
+    button {
+      background-color: @tblue; 
+      transition: linear 0.15s all;
+
+      &:hover {
+        background-color: darken(@tblue, 30%);
+      }
+
+    }
+  }
+}

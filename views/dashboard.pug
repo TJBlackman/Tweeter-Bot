@@ -1,0 +1,178 @@
+extends layout.pug
+
+block content
+
+  -
+    var profile_banner = user.twitterInfo.profile_banner_url || "/images/default_profile_banner.jpg";
+    var profile_image = user.twitterInfo.profile_image_url || "/images/default_profile_image.jpg";
+    var profile_image_lg = user.twitterInfo.profile_image_url_lg || "/images/default_profile_image.jpg";
+
+    //- get tweets in queue in order
+    var tweets_queued = user.queue.map(id => user.tweets.find(tweet => tweet._id.toString() === id.toString())) || [];
+    var tweets_tweeted = user.tweets.filter(item => item.tweeted).reverse() || [];
+    var tweets_retweed = user.tweets.filter(item => item.retweeted).reverse() || [];
+    var tweets_liked = user.tweets.filter(item => item.liked).reverse() || [];
+
+
+  .dashboard-wrapper.main
+    //- banner image
+    .banner-img(
+      style=`background-image: url(${profile_banner});`
+    )
+    //- Nav bar
+    .nav-row
+      .container
+        .row
+          .col-4
+            img.rounded-circle(src=`${profile_image_lg}`)
+          .col
+            ul.nav.nav-tabs
+              li.nav-item
+                a.nav-link.active(href='#queue-panel', data-toggle='tab', role='tab')
+                  label.nav-label Queue
+                  span.nav-value #{tweets_queued.length}
+              li.nav-item
+                a.nav-link(href='#history-panel', data-toggle='tab', role='tab')
+                  label.nav-label History
+                  span.nav-value #{tweets_tweeted.length}
+              li.nav-item
+                a.nav-link(href='#retweets-panel', data-toggle='tab', role='tab')
+                  label.nav-label Retweets
+                  span.nav-value #{tweets_retweed.length}
+              li.nav-item
+                a.nav-link(href='#likes-panel', data-toggle='tab', role='tab')
+                  label.nav-label Likes
+                  span.nav-value #{tweets_liked.length}
+
+
+    //- content
+    .content-row
+      .container
+        .row
+          .col-md-4.account-details
+            p.account-name #{user.twitterInfo.name}
+            p.account-handle #{user.twitterInfo.screen_name}
+            p.account-joined Joined on #{user.twitterInfo.created_at.toLocaleDateString('en-US')}
+            form#post-tweet.clearfix(name='queue-tweet', method='POST')
+              textarea(placeholder='Post a Tweet', name="tweet")
+              button.submitBtn(type='button', data-action='/api/queue-tweet') Add To Queue 
+              button.submitBtn(type='button', data-action='/api/tweet-now') Tweet Now
+          
+          //- Center Content
+          .col-md-8
+            .tab-content
+              
+              //- queue panel
+              #queue-panel.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='home-tab')
+                ul.list-group
+                  each tweet in tweets_queued            
+                    li.list-group-item.tweet-list-item(data-id=`${tweet._id}`)
+                      .column-icon
+                        img.rounded-circle(src=`${profile_image}`)
+                      .column-tweet
+                        .tweet-header
+                          .account-name #{user.twitterInfo.name}
+                          .account-handle #{user.twitterInfo.screen_name}
+                          .tweet-date #{new Date(tweet.lastUpdated).toLocaleDateString('en-US')}
+                        .tweet-content
+                          .tweet-body #{tweet.tweet}
+                          .tweet-media
+                        .tweet-actions
+                          button.tweet-up(type='button') Move Up
+                          button.tweet-down(type='button') Move Down
+                          button.tweet-edit(type='button') Edit
+                          button.tweet-delete(type='button') Delete
+              
+              //- history panel
+              #history-panel.tab-pane.fade(role='tabpanel', aria-labelledby='home-tab')
+                ul.list-group
+                  each tweet in tweets_tweeted
+                    li.list-group-item.tweet-list-item(data-id=`${tweet._id}`)
+                      .column-icon
+                        a(href=`https://twitter.com/${user.twitterInfo.screen_name}`, target="_blank")
+                          img.rounded-circle(src=`${profile_image}`)
+                      .column-tweet
+                        .tweet-header
+                          .account-name 
+                            a(href=`https://twitter.com/${user.twitterInfo.screen_name}`, target="_blank") 
+                              | #{user.twitterInfo.name}
+                          .account-handle 
+                            a(href=`https://twitter.com/${user.twitterInfo.screen_name}`, target="_blank") 
+                              | #{user.twitterInfo.screen_name}
+                          .tweet-date #{tweet.createdAt.toLocaleDateString('en-US')}
+                        .tweet-content
+                          .tweet-body #{tweet.tweet}
+                          .tweet-media
+                        .tweet-actions
+                          a.tweet-comments(href=`https://www.twitter.com/${user.screen_name}/status/${tweet.twitterId}`, target="_blank") Comments
+                          button.tweet-like(type='button') Like
+                          button.tweet-retweet(type='button') Retweet
+                          button.tweet-delete(type='button') Delete
+
+              //- retweeted panel
+              #retweets-panel.tab-pane.fade(role='tabpanel', aria-labelledby='messages-tab')
+                ul.list-group
+                  each tweet in tweets_retweed
+                    li.list-group-item.tweet-list-item.retweeted(data-id=`${tweet._id}`, class=(tweet.liked) ? "liked" : "")
+                      .column-icon
+                        a(href=`${tweet.twitterAccount.account_url}`, target="_blank")
+                          img.rounded-circle(src=`${tweet.twitterAccount.profile_image}`)
+                      .column-tweet
+                        .tweet-header
+                          .account-name 
+                            a(href=`${tweet.twitterAccount.account_url}`, target="_blank") 
+                              | #{tweet.twitterAccount.name}
+                          .account-handle 
+                            a(href=`${tweet.twitterAccount.account_url}`, target="_blank") 
+                              | #{tweet.twitterAccount.screen_name}
+                          .tweet-date #{tweet.createdAt.toLocaleDateString('en-US')}
+                        .tweet-content
+                          .tweet-body #{tweet.tweet}
+                          .tweet-media
+                        .tweet-actions
+                          a.tweet-comments(href=`${tweet.url}`, target="_blank") Comments
+                          button.tweet-like(type='button') Like
+                          button.tweet-retweet(type='button') Retweet
+                          button.tweet-delete(type='button') Delete
+                  
+              //- liked panel
+              #likes-panel.tab-pane.fade(role='tabpanel', aria-labelledby='settings-tab')
+                ul.list-group
+                  each tweet in tweets_liked
+                    li.list-group-item.tweet-list-item.liked(data-id=`${tweet._id}`, class=(tweet.retweeted) ? "retweeted" : "")
+                      .column-icon
+                        a(href=`${tweet.twitterAccount.account_url}`, target="_blank")
+                          img.rounded-circle(src=`${tweet.twitterAccount.profile_image}`)
+                      .column-tweet
+                        .tweet-header
+                          .account-name 
+                            a(href=`${tweet.twitterAccount.account_url}`, target="_blank") 
+                              | #{tweet.twitterAccount.name}
+                          .account-handle 
+                            a(href=`${tweet.twitterAccount.account_url}`, target="_blank") 
+                              | #{tweet.twitterAccount.screen_name}
+                          .tweet-date #{tweet.createdAt.toLocaleDateString('en-US')}
+                        .tweet-content
+                          .tweet-body #{tweet.tweet}
+                          .tweet-media
+                        .tweet-actions
+                          
+                          a.tweet-comments(href=`${tweet.url}`, target="_blank") Comments
+                          button.tweet-like(type='button') Like
+                          button.tweet-retweet(type='button') Retweet
+                          button.tweet-delete(type='button') Delete
+  //- Edit Tweet Modal
+  .modal(tabindex='-1', role='dialog')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5.modal-title 
+            i.fa.fa-pencil(style="margin-right: 10px;")
+            | Edit Tweet
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          form#tweet-edit(action="/api/tweets/edit", method="PUT")
+            input(type="hidden", name="id", value="")
+            textarea(name="tweet")
+            button.submitBtn(type='button') Update Tweet

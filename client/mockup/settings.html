@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="container-fluid">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+      <a class="navbar-brand" href="#">Twitter Bot</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+  </header> 
+
+  <div class="settings-wrapper">
+    <div class="container">
+      <div class="row">
+        <!-- LEFT COLUMN --> 
+        <div class="col-md-4 column-menu">
+          <div class="menu-header">
+            <div class="banner">
+              <img src="../images/profile-banner.jpg" class="img-fluid"/>
+            </div>
+            <div class="account-info">
+              <img src="../images/profile-pic.jpg" class="rounded-circle profile-pic"/> 
+              <div class="titles">
+                <p class="account-name">BristolBear</p>
+                <p class="account-handle">@BristolBearDog</p>
+              </div>
+            </div>
+          </div>
+          <div class="btn-group-vertical menu-options nav nav-tabs">
+            <button type="button" class="btn active" data-toggle="tab" href="#account-panel" role="tab">Account</button>
+            <button type="button" class="btn" data-toggle="tab" href="#api-panel" role="tab">API Keys</button>
+            <button type="button" class="btn" data-toggle="tab" href="#tweet-panel" role="tab">Tweet Schedule</button>
+            <button type="button" class="btn" data-toggle="tab" href="#likes-panel" role="tab">Likes Settings</button>
+            <button type="button" class="btn" data-toggle="tab" href="#retweet-panel" role="tab">Retweet Settings</button>
+            <button type="button" class="btn" data-toggle="tab" href="#faq-panel" role="tab">FAQ</button>
+          </div>
+        </div>
+        <!-- CONTENT COLUMN --> 
+        <div class="col-md-8 column-content">
+          <div class="tab-content">
+            <!-- account settings -->
+            <div class="tab-pane fade show active" id="account-panel" role="tabpanel">
+              <h2 class="panel-title">Account Settings</h2>
+              <p class="settings-info lead">This information is associated with your Twitter Bot account only. It will not change the email address or password associated with your actual Twitter account.</p>
+              <form>
+                <h4 class="form-title">Update Your Email Address</h4>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email Address" name="email" value="">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password" name="password" value="">
+                </div>
+                <button type="submit" class="btn btn-primary ml-auto">Save</button>
+              </form>
+              <form>
+                  <h4 class="form-title">Update Your Password</h4>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="password" class="form-control" placeholder="Current Password" name="current-password">
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="password" class="form-control" placeholder="New Password" name="new-password">
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                      </span>
+                    </div>
+                  </div>  
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="password" class="form-control" placeholder="Confirm New Password" name="confirm-password">
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                      </span>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary ml-auto">Save</button>
+                </form>
+
+            </div>
+            <!-- API KEYS -->
+            <div class="tab-pane fade" id="api-panel" role="tabpanel">
+              <h2 class="panel-title">API Settings</h2>
+              <p class="settings-info lead">This information information is very private!<br/>Keep it secret! Keep it safe!</p>
+
+              <div id="accordion" role="tablist">
+                <!-- card 1 -->
+                <div class="card">
+                  <div class="card-header" role="tab" id="headingOne">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What are API keys?
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseOne" class="collapse" role="tabpanel" data-parent="#accordion">
+                    <div class="card-body">
+                      <p>API keys allows us to communicate directly with Twitter on your behalf! You can think of them as highly complex passwords that we present to Twitter to prove that we have the authority to post, like, and retweet from your account.</p>
+                      <p>Without them, we simply cannot access your account.</p>
+                      <p><span class="lead">Note:</span> Providing API keys from Twitter will not give us access to see your Twitter password, or other personal information.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- card 2 -->
+                <div class="card">
+                  <div class="card-header" role="tab" id="headingTwo">
+                    <h5 class="mb-0">
+                      <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        How do I generate my API keys?
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      <ul class="list-group">
+                        <li class="list-group-item">Log in to Twitter, then visit <a href="https://apps.twitter.com/app/new" target="_blank">https://apps.twitter.com/app/new</a></li>
+                        <li class="list-group-item">Fill in the required fields to create a new Twitter application
+                          <ul>
+                            <li>Name: Twitter Bot</li>
+                            <li>Description: Automated Twitter Service</li>
+                            <li>Website: https://www.twitterbot.io</li>
+                          </ul>
+                        </li>
+                        <li class="list-group-item">Submit application</li>
+                        <li class="list-group-item">Near the top of the page, select Keys &amp; Access Tokens</li>
+                        <li class="list-group-item">Copy and paste API Key and API Secret</li>
+                        <li class="list-group-item">Click Create Access Token</li>
+                        <li class="list-group-item">Copy and paste Access Token &amp; Token Secret</li>
+                        <li class="list-group-item">Save settings on TwitterBot</li>
+                      </ul>
+                      <br/>
+                      <p>You may revoke TwitterBot access to your account at any time by logging in via the link above and clicking the revoke access button at the bottom of the API Keys page.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <form>
+                <h4 class="form-title">API Key</h4>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="password" class="form-control" placeholder="API Key" name="api-key">
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </span>
+                  </div>
+                </div> 
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="password" class="form-control" placeholder="API Secret" name="api-secret">
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </span>
+                  </div>
+                </div>
+                <h4 class="form-title">Access Token</h4>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="password" class="form-control" placeholder="Access Token" name="access-token">
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </span>
+                  </div>
+                </div> 
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="password" class="form-control" placeholder="Access Secret" name="access-secret">
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </span>
+                  </div>
+                </div> 
+                <button type="submit" class="btn btn-primary ml-auto">Save</button>
+              </form>
+
+
+
+
+
+            </div>
+            <!-- Tweet Panel -->
+            <div class="tab-pane fade" id="tweet-panel" role="tabpanel">
+                <h2 class="panel-title">Tweet Schedule</h2>
+                <p class="settings-info lead">Use this menu to set the schedule during which your tweets should be posted. Upon reaching the designated times and days, the next tweet in queue will be posted.</p>
+            </div>
+            <!-- LIKES PANEL -->
+            <div class="tab-pane fade" id="likes-panel" role="tabpanel">
+              <h2 class="panel-title">Likes Settings</h2>
+              <p class="settings-info lead">Use this menu to select how often your twitter account should like other tweets. You may set a number of keywords for which to look for when auto-liking a tweet.</p>
+              <form>
+                <label>
+                  <input type="checkbox" value="false" checked> Enable Tweet auto-liking based on keyword seach
+                </label>
+                <div class="form-group">
+                    <label for="keywords">Input keywords to search for when liking tweets</label>
+                  <textarea type="text" class="form-control" id="keywords" placeholder="Dogs, bunnies, tacos, California, etc...."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary ml-auto">Save</button>
+              </form>
+            </div>
+            <!-- Retweet Settings -->
+            <div class="tab-pane fade" id="retweet-panel" role="tabpanel">
+                <h2 class="panel-title">Retweet Settings</h2>
+                <p class="settings-info lead">Use this menu to select how often your twitter account should retweet other tweets. You may set a list of keywords for which to look for when auto-retweeting.</p>
+                <form>
+                  <label>
+                    <input type="checkbox" value="false" checked> Enable retweeting based on keyword search
+                  </label>
+                  <div class="form-group">
+                      <label for="keywords">Input keywords to search for when retweeting</label>
+                    <textarea type="text" class="form-control" id="keywords" placeholder="Dogs, bunnies, tacos, California, etc...."></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary ml-auto">Save</button>
+                </form>
+            </div>
+            <!-- FAQ Panel --> 
+            <div class="tab-pane fade" id="faq-panel" role="tabpanel">
+              <h2 class="panel-title">FAQ Panel</h2>
+              <p class="settings-info lead">Coming Soon....</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer row">
+    <div class="col">
+      <p class="signature">&lt; Create by Eddy /&gt;</p>
+    </div>
+  </footer>
+
+
+
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>

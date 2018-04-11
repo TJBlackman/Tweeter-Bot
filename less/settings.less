@@ -1,0 +1,166 @@
+// main: main.less
+
+.settings-wrapper {
+  background-color: darken(@white, 1%);
+  padding: 20px 0 0 0;
+
+  .menu-header{
+    background-color: @white; 
+    padding: 0 0 15px 0;
+    margin: 0 0 20px 0;
+    .account-info {
+      position: relative; 
+
+      img {
+        position: absolute; 
+        top: -30px; 
+        width: 85px; 
+        left: 10px; 
+        border: 3px solid @white; 
+        box-shadow: 0 0 1px 1px lighten(@black, 50%);
+      }
+
+      .titles {
+        margin-left: 100px;
+
+        .account-name {
+          font-weight: bold; 
+          margin: 0; 
+          font-size: 18px;
+        }
+        .account-handle {
+          margin: 0; 
+          color: lighten(@black, 30%);
+        }
+      }
+    }
+  }
+  .menu-options {
+    width: 100%; 
+    border: 1px solid darken(@white, 10%);
+
+    .btn {
+      text-align: left; 
+      border-bottom: 1px solid darken(@white, 10%);
+      margin: 0; 
+      position: relative; 
+      transition: linear 0.15s all;
+      color: lighten(@black, 40%);
+
+      &.active {
+        font-weight: bold; 
+        &:after { transform: scale(1.3); }
+      }
+
+      &:after {
+        content: "\f105";
+        font-family: FontAwesome; 
+        position: absolute; 
+        right: 10px;
+      }
+
+      &:hover {
+        color: darken(@tblue, 10%);
+        background-color: darken(@white, 2%);
+      }
+    }
+  }
+
+  .column-content {
+    min-height: 80vh; 
+    background-color: lighten(@white, 5%); 
+    padding: 20px;
+  }
+  .tab-pane {
+    .panel-title {
+      color: @black;
+    }
+    .settings-info {
+      color: lighten(@black, 30%);
+      margin-bottom: 30px; 
+      padding-bottom: 30px; 
+      border-bottom: 2px solid darken(@white,10%);
+    }
+    .enabled {
+      label.lead { 
+        display: inline;
+        line-height: 1.1;
+        vertical-align: bottom;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        input {
+          display: inline; 
+          margin-right: 6px; 
+        }
+      }
+    }
+    .settings-panel {
+      position: relative; 
+      &.sheild {
+        opacity: 0.25; 
+        &:before { z-index: 99; }
+      }
+      &:before {
+        content: "";
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        height: 100%; 
+        width: 100%; 
+        background-color: transparent;
+        z-index: -1;
+      }
+      .lead {
+        margin: 20px 0 10px 0; 
+        display: block; 
+        width: 100%; 
+        border-bottom: 2px solid darken(@white, 10%);
+        font-weight: bold; 
+        color: lighten(@black, 20%);
+      }
+      form.traditional {
+        margin: 20px 0; 
+        text-align: right; 
+        .form-title {
+          color: lighten(@black, 20%);
+          text-align: left; 
+        }
+        .form-group {
+          margin-bottom: 5px; 
+
+          .lead {text-align: left;}
+        }
+
+      }
+      form.schedule {
+        display: flex; 
+        flex-flow: row wrap; 
+        justify-content: space-between; 
+
+        &.scheduled {
+          padding: 10px 0 0 0;
+          margin: 10px 0 0 0;
+          border-bottom: 1px solid darken(@white, 10%);
+          &:nth-last-child(1) {
+            border: none; 
+          }
+        }
+        p {
+          label {
+            margin-right: 6px; 
+          }
+        }
+        button.btn.submitBtn {
+          height: 30px;
+          line-height: 29px;
+          vertical-align: middle;
+          padding: 0 20px; 
+        }
+      }
+    }
+    
+  }
+}
